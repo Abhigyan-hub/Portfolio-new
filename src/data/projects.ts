@@ -1,0 +1,408 @@
+import type { Project } from '@/types'
+
+export const defaultProjects: Project[] = [
+  {
+    id: '1',
+    slug: 'mycollege-companion',
+    title: 'MyCollege Companion',
+    shortDescription:
+      'Student-focused college companion platform for attendance, timetable management, and verification.',
+    detailedDescription:
+      'A mobile-first college companion designed around everyday academic workflows. Built to help students track attendance eligibility, manage timetables, and verify registration details through a focused student interface.',
+    technologies: ['React Native', 'FastAPI', 'Python', 'REST APIs', 'Database'],
+    category: 'Mobile',
+    status: 'In Progress',
+    year: 2024,
+    featured: true,
+    features: [
+      'Student registration-number verification',
+      'Attendance tracking',
+      'Attendance percentage calculation',
+      '75% eligibility tracking',
+      'Timetable management',
+      'Student-focused mobile interface',
+      'College-specific functionality',
+    ],
+    problem:
+      'College students often juggle fragmented tools for attendance, timetables, and academic eligibility checks.',
+    solution:
+      'A unified companion app that centralizes attendance math, timetable views, and student verification around college-specific workflows.',
+    architecture:
+      'React Native client communicating with a FastAPI backend over REST APIs, with persistence for student and attendance records.',
+    challenges: [
+      'Accurate attendance percentage and eligibility rules',
+      'College-specific verification flows',
+      'Clean mobile UX for dense academic data',
+    ],
+    results: 'Designed and implemented around real student academic workflows. Links and metrics can be added from the control room.',
+    futureImprovements: [
+      'Deeper timetable OCR integration',
+      'Push reminders for low attendance',
+      'Offline-friendly caching',
+    ],
+    order: 1,
+  },
+  {
+    id: '2',
+    slug: 'timetable-ocr-system',
+    title: 'Timetable OCR System',
+    shortDescription:
+      'Computer-vision pipeline that extracts structured timetable data from timetable images.',
+    detailedDescription:
+      'An OCR and computer-vision system that reads timetable images and produces structured subject, faculty, batch, section, and time-slot information. Designed so it can integrate into MyCollege Companion.',
+    technologies: ['Python', 'Tesseract OCR', 'OpenCV', 'Regex'],
+    category: 'Computer Vision',
+    status: 'Completed',
+    year: 2024,
+    featured: true,
+    features: [
+      'Subject extraction',
+      'Faculty extraction',
+      'Batch extraction',
+      'Section identification',
+      'Time-slot extraction',
+      'Structured timetable generation',
+    ],
+    problem: 'Timetable data often exists only as images or PDFs, making it hard to reuse in apps.',
+    solution:
+      'Combine OpenCV preprocessing, Tesseract OCR, and regex post-processing to convert timetable images into structured records.',
+    architecture:
+      'Image preprocessing → OCR → regex/entity extraction → structured timetable output suitable for downstream mobile or web clients.',
+    challenges: [
+      'Noisy or low-contrast timetable images',
+      'Layout variance across colleges',
+      'Reliable entity segmentation',
+    ],
+    futureImprovements: ['Template-adaptive parsers', 'Direct sync into MyCollege Companion'],
+    order: 2,
+  },
+  {
+    id: '3',
+    slug: 'qr-code-attendance-system',
+    title: 'QR Code Attendance System',
+    shortDescription:
+      'QR-based attendance and access system for laboratory environments.',
+    detailedDescription:
+      'A laboratory attendance and access workflow that identifies students via QR codes, records attendance, and stores results in Excel for straightforward operational use.',
+    technologies: ['Python', 'OpenCV', 'QR recognition', 'Excel'],
+    category: 'Computer Vision',
+    status: 'Completed',
+    year: 2023,
+    featured: false,
+    features: [
+      'QR scanning',
+      'Student identification',
+      'Attendance recording',
+      'Automated record management',
+      'Excel-based storage',
+    ],
+    problem: 'Manual lab attendance is slow and error-prone for repeated sessions.',
+    solution: 'Scan QR identities, map them to students, and write attendance records automatically.',
+    architecture: 'OpenCV capture loop → QR decode → student lookup → Excel workbook updates.',
+    order: 3,
+  },
+  {
+    id: '4',
+    slug: 'inventory-management-billing',
+    title: 'Inventory Management & Billing System',
+    shortDescription:
+      'Desktop inventory and billing application with barcode workflows and Excel storage.',
+    detailedDescription:
+      'A Python desktop system for inventory, barcode generation/scanning, billing, printable bills, dashboards, and data visualization backed by Excel.',
+    technologies: ['Python', 'Tkinter', 'OpenCV', 'Pandas', 'Excel'],
+    category: 'Systems',
+    status: 'Completed',
+    year: 2023,
+    featured: false,
+    features: [
+      'Inventory management',
+      'Barcode generation',
+      'Barcode scanning',
+      'Billing',
+      'Printable bills',
+      'Dashboard',
+      'Data visualization',
+      'Excel data storage',
+    ],
+    problem: 'Small retail and inventory workflows need billing and stock tools without heavy infrastructure.',
+    solution: 'A local desktop app combining inventory, barcodes, billing, and Excel-backed records.',
+    architecture: 'Tkinter UI → Pandas/Excel persistence → OpenCV barcode capture → billing output.',
+    order: 4,
+  },
+  {
+    id: '5',
+    slug: 'cascade-forum',
+    title: 'Cascade Forum / Event Registration Platform',
+    shortDescription:
+      'Production-oriented event management platform with roles, payments, and admin workflows.',
+    detailedDescription:
+      'An event creation, approval, registration, and payments platform with role-based permissions, form builder capabilities, maps, and admin dashboards. Deployed across Vercel frontend and AWS-hosted API/database layers.',
+    technologies: [
+      'React',
+      'TypeScript',
+      'TanStack Router',
+      'TanStack Query',
+      'FastAPI',
+      'PostgreSQL',
+      'AWS EC2',
+      'AWS RDS',
+      'Nginx',
+      'Vercel',
+      'Razorpay',
+      'Maps API',
+    ],
+    category: 'Full Stack',
+    status: 'Completed',
+    year: 2024,
+    featured: true,
+    features: [
+      'Event creation',
+      'Event approval',
+      'Registration',
+      'Form builder',
+      'Role-based permissions',
+      'Admin dashboard',
+      'Payment integration',
+      'Event images',
+      'Location functionality',
+    ],
+    problem:
+      'Event organizers need approval flows, registrations, payments, and role separation in one system.',
+    solution:
+      'A full-stack platform with Client, Admin, and Super Admin roles spanning creation, approval, payments, and operations.',
+    architecture:
+      'React/TypeScript SPA on Vercel → FastAPI on AWS EC2 behind Nginx → PostgreSQL on AWS RDS, with Razorpay and Maps integrations.',
+    challenges: [
+      'Role-based authorization across workflows',
+      'Payment and registration consistency',
+      'Production deployment and reverse-proxy setup',
+    ],
+    futureImprovements: ['Richer analytics', 'Expanded form builder templates'],
+    order: 5,
+  },
+  {
+    id: '6',
+    slug: 'emergency-mdt-system',
+    title: 'Police / Emergency MDT System',
+    shortDescription:
+      'Concept for a Mobile Data Terminal covering dispatch, incidents, and emergency roles.',
+    detailedDescription:
+      'A systems concept for police and emergency Mobile Data Terminal workflows spanning dispatcher, police, EMS, and administrator roles with area-based incident allocation.',
+    technologies: ['C++', 'C', 'AWS', 'Redis', 'Database systems'],
+    category: 'Systems',
+    status: 'Concept',
+    year: 2024,
+    featured: false,
+    features: [
+      'Incident management',
+      'Dispatch',
+      'Area-based incident allocation',
+      'Emergency response workflows',
+      'Real-time operational data',
+    ],
+    problem: 'Emergency operations need structured multi-role terminals for incidents and dispatch.',
+    solution:
+      'A concept MDT architecture exploring role separation, Redis-backed operational state, and cloud-backed data services.',
+    architecture:
+      'Concept architecture considering low-level clients, Redis for operational state, and cloud databases for persistence.',
+    order: 6,
+  },
+  {
+    id: '7',
+    slug: 'astar-vs-gccp-pathfinding',
+    title: 'A* vs GCCP Pathfinding Research',
+    shortDescription:
+      'Research comparing pathfinding algorithms across obstacle-density conditions with repeated trials.',
+    detailedDescription:
+      'An experimental research project comparing A* and GCCP under controlled obstacle-density conditions using 100 independent maps per condition and statistical evaluation of success, nodes expanded, and runtime.',
+    technologies: ['Python', 'Algorithms', 'Statistical analysis', 'Research methodology'],
+    category: 'Research',
+    status: 'Research',
+    year: 2024,
+    featured: true,
+    features: [
+      '100 independent maps per obstacle-density condition',
+      'Success rate analysis',
+      'Mean / median nodes',
+      'Standard deviation',
+      'Mean execution time',
+    ],
+    problem:
+      'Pathfinding algorithm behavior changes with obstacle density; comparative evidence needs controlled experimentation.',
+    solution:
+      'Run repeated map trials per density condition and evaluate algorithms with statistical metrics rather than single-run anecdotes.',
+    architecture:
+      'Experiment harness → map generation by density → algorithm runs → aggregated metrics and visualizations.',
+    results:
+      'Experimental framework and analysis structure are documented on the Research page. Graphs and numeric outcomes can be attached via the control room.',
+    futureImprovements: [
+      'Additional algorithms',
+      'Larger map sets',
+      'Interactive result explorer',
+    ],
+    order: 7,
+  },
+  {
+    id: '8',
+    slug: 's550-hexacopter',
+    title: 'S550 Hexacopter',
+    shortDescription:
+      'Hardware and flight-control configuration for an S550 hexacopter platform.',
+    detailedDescription:
+      'A robotics/hardware project covering frame assembly, motor and ESC configuration, radio and accelerometer calibration, and Mission Planner workflows with Pixhawk/APM stacks.',
+    technologies: [
+      'S550 frame',
+      'A2212 1000KV motors',
+      'ESCs',
+      'Pixhawk',
+      'APM 2.8',
+      'FlySky CT6A',
+      'Mission Planner',
+    ],
+    category: 'Robotics',
+    status: 'Completed',
+    year: 2023,
+    featured: true,
+    features: [
+      'Flight control setup',
+      'Motor configuration',
+      'ESC configuration',
+      'Radio calibration',
+      'Accelerometer calibration',
+      'Mission Planner integration',
+    ],
+    problem: 'Building a reliable multicopter requires careful hardware integration and calibration.',
+    solution:
+      'Assemble and configure an S550 hexacopter stack with flight controller, ESCs, radio, and Mission Planner calibration.',
+    architecture:
+      'Airframe + propulsion + flight controller + radio + ground station (Mission Planner) configuration pipeline.',
+    order: 8,
+  },
+  {
+    id: '9',
+    slug: 'home-automation-mozart-corp',
+    title: 'Home Automation / Mozart Corp',
+    shortDescription:
+      'Technology and product concept for smart-home automation spanning software and hardware.',
+    detailedDescription:
+      'A home-automation concept exploring smart devices, embedded systems, and software experiences for connected living. Presented as a technology/product concept rather than a launched company.',
+    technologies: ['IoT', 'Embedded systems', 'Home automation', 'Software', 'Hardware'],
+    category: 'IoT',
+    status: 'Concept',
+    year: 2024,
+    featured: false,
+    features: [
+      'Smart-home product concepts',
+      'Device and software co-design',
+      'Embedded control ideas',
+      'Automation scenarios',
+    ],
+    problem: 'Home automation products need coherent hardware/software product thinking.',
+    solution: 'Concept work exploring smart-home product directions across IoT and embedded systems.',
+    order: 9,
+  },
+  {
+    id: '10',
+    slug: 'robotic-vacuum-cleaner',
+    title: 'Robotic Vacuum Cleaner',
+    shortDescription:
+      'Robotics concept for autonomous cleaning with sensing, navigation, and motor control.',
+    detailedDescription:
+      'A robotics concept covering autonomous movement, sensors, navigation, motor control, automation, and potential computer-vision assistance.',
+    technologies: ['Robotics', 'Sensors', 'Navigation', 'Motor control', 'Automation'],
+    category: 'Robotics',
+    status: 'Concept',
+    year: 2023,
+    featured: false,
+    features: [
+      'Autonomous movement concepts',
+      'Sensor-driven navigation',
+      'Motor control',
+      'Automation workflows',
+      'Potential CV assistance',
+    ],
+    problem: 'Domestic robots need reliable sensing and navigation under imperfect indoor conditions.',
+    solution: 'Concept exploration of sensing, navigation, and control for an autonomous vacuum platform.',
+    order: 10,
+  },
+  {
+    id: '11',
+    slug: 'smart-dustbin',
+    title: 'Smart Dustbin',
+    shortDescription:
+      'IoT/embedded product concept for automated waste detection and smart behavior.',
+    detailedDescription:
+      'An embedded/IoT product concept focused on sensors, automation, and smart waste-handling functionality.',
+    technologies: ['Sensors', 'Automation', 'Embedded systems', 'IoT'],
+    category: 'IoT',
+    status: 'Concept',
+    year: 2023,
+    featured: false,
+    features: [
+      'Waste detection concepts',
+      'Sensor automation',
+      'Embedded control',
+      'IoT connectivity ideas',
+    ],
+    problem: 'Waste systems can benefit from sensing and automation for smarter operation.',
+    solution: 'Concept design for a sensor-driven smart dustbin with embedded automation.',
+    order: 11,
+  },
+  {
+    id: '12',
+    slug: 'robiq',
+    title: 'Robiq',
+    shortDescription:
+      'Robotics and smart-hardware product concept spanning automation and embedded software.',
+    detailedDescription:
+      'A robotics/product concept focused on robotics, automation, smart hardware, software, and embedded systems.',
+    technologies: ['Robotics', 'Automation', 'Smart hardware', 'Software', 'Embedded systems'],
+    category: 'Robotics',
+    status: 'Concept',
+    year: 2024,
+    featured: false,
+    features: [
+      'Robotics product exploration',
+      'Automation scenarios',
+      'Hardware/software co-design',
+      'Embedded systems concepts',
+    ],
+    problem: 'Robotics products require tight coupling between hardware capability and software behavior.',
+    solution: 'Concept work framing Robiq as a robotics/automation product direction.',
+    order: 12,
+  },
+  {
+    id: '13',
+    slug: 'ecommerce-platform',
+    title: 'E-commerce Platform',
+    shortDescription:
+      'Web storefront and admin panel with products, orders, auth, and backend APIs.',
+    detailedDescription:
+      'An e-commerce application covering product management, storefront experiences, admin dashboard, orders, authentication, backend APIs, and database integration.',
+    technologies: [
+      'React',
+      'Node.js',
+      'REST APIs',
+      'Database',
+      'Authentication',
+      'Admin dashboard',
+    ],
+    category: 'Full Stack',
+    status: 'Completed',
+    year: 2023,
+    featured: false,
+    features: [
+      'Product management',
+      'Storefront',
+      'Admin dashboard',
+      'Orders',
+      'Authentication',
+      'Backend APIs',
+      'Database integration',
+    ],
+    problem: 'Retail workflows need both customer-facing storefronts and operational admin tools.',
+    solution: 'A full-stack e-commerce system with storefront and admin panel backed by APIs and a database.',
+    architecture: 'Frontend storefront/admin → REST APIs → authenticated sessions → database-backed catalogs and orders.',
+    order: 13,
+  },
+]

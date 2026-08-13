@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-fg: var(--accent-fg);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+}
+
+:root,
+.light {
+  --bg: #eef1f4;
+  --bg-elevated: #f7f9fb;
+  --surface: #ffffff;
+  --border: #d5dde6;
+  --border-strong: #b7c3d1;
+  --text: #10151c;
+  --text-muted: #5a6a7c;
+  --accent: #0f766e;
+  --accent-dim: #ccfbf1;
+  --accent-fg: #ffffff;
+  --danger: #b91c1c;
+  --success: #047857;
+  --grid-line: rgba(15, 23, 42, 0.06);
+  --glow: rgba(15, 118, 110, 0.12);
+}
+
+.dark {
+  --bg: #0a0c0f;
+  --bg-elevated: #0f1318;
+  --surface: #141a22;
+  --border: #243040;
+  --border-strong: #344556;
+  --text: #e8eef5;
+  --text-muted: #8b9bb0;
+  --accent: #2dd4bf;
+  --accent-dim: rgba(45, 212, 191, 0.12);
+  --accent-fg: #042f2e;
+  --danger: #f87171;
+  --success: #34d399;
+  --grid-line: rgba(148, 163, 184, 0.08);
+  --glow: rgba(45, 212, 191, 0.15);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--accent-dim);
+    color: var(--text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .grid-bg {
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .glow-spot {
+    background:
+      radial-gradient(ellipse 60% 40% at 50% -10%, var(--glow), transparent 60%),
+      radial-gradient(ellipse 40% 30% at 90% 20%, var(--glow), transparent 50%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
