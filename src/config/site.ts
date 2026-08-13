@@ -1,13 +1,13 @@
 import type { SiteConfig } from '@/types'
 
 export const siteConfig: SiteConfig = {
-  name: 'Your Name',
-  shortName: 'YN',
+  name: 'Abhigyan Varma',
+  shortName: 'AV',
   tagline: 'Building software that crosses the boundary between code and the real world.',
   role: 'Computer Science Engineer · Systems Builder',
-  email: 'you@example.com',
-  github: 'https://github.com/yourusername',
-  linkedin: 'https://linkedin.com/in/yourusername',
+  email: 'mozart.developerr@gmail.com',
+  github: 'https://github.com/Abhigyan-hub/e',
+  linkedin: 'https://www.linkedin.com/in/abhigyan-varma-42686b32a/',
   resumeUrl: '',
   currentlyBuilding: 'Systems that connect software, vision, and hardware',
   currentlyLearning: 'Distributed systems & research methodology',

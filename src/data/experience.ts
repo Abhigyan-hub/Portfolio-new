@@ -7,10 +7,10 @@ import type { Experience } from '@/types'
 export const defaultExperience: Experience[] = [
   {
     id: 'exp-1',
-    organization: 'Add organization',
-    position: 'Add role / title',
-    startDate: 'YYYY-MM',
-    endDate: 'Present',
+    organization: 'AppDost IT solotions',
+    position: 'Full-Stack Developer',
+    startDate: '2026-February',
+    endDate: '2026-May',
     description:
       'Replace this placeholder with a real experience entry. Use the control room to edit organization, role, dates, technologies, and achievements.',
     technologies: ['React', 'TypeScript', 'Python'],
