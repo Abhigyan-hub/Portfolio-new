@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
   tagline: 'Building software that crosses the boundary between code and the real world.',
   role: 'Computer Science Engineer · Systems Builder',
   email: 'mozart.developerr@gmail.com',
-  github: 'https://github.com/Abhigyan-hub/e',
+  github: 'https://github.com/Abhigyan-hub/',
   linkedin: 'https://www.linkedin.com/in/abhigyan-varma-42686b32a/',
   resumeUrl: '',
   currentlyBuilding: 'Systems that connect software, vision, and hardware',
