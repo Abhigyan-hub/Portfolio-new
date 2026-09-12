@@ -19,14 +19,17 @@ export function HomePage() {
     <>
       <Hero />
 
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
         <FadeIn>
           <div className="flex items-end justify-between gap-4">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-widest text-accent">Selected work</p>
-              <h2 className="mt-2 text-3xl font-semibold tracking-tight">Featured systems</h2>
-              <p className="mt-2 max-w-xl text-text-muted">
-                Platforms, vision pipelines, research, and hardware — not just UI demos.
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold text-accent">Selected work</p>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+                Projects worth opening
+              </h2>
+              <p className="mt-3 text-lg leading-relaxed text-text-muted">
+                A mix of full-stack products, vision pipelines, research, and hardware — written to
+                be easy to scan.
               </p>
             </div>
             <Link to="/projects" className="hidden sm:block">
@@ -37,7 +40,7 @@ export function HomePage() {
           </div>
         </FadeIn>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {featured.map((project, i) => (
             <FadeIn key={project.id} delay={i * 0.05}>
               <ProjectCard project={project} />
@@ -55,11 +58,11 @@ export function HomePage() {
       </section>
 
       <section className="border-y border-border bg-bg-elevated">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3 md:py-20">
           {[
             {
               title: 'Software & systems',
-              body: 'React, React Native, FastAPI, databases, auth, and cloud deployment.',
+              body: 'React, React Native, FastAPI, databases, auth, and cloud deployment for real products.',
             },
             {
               title: 'Vision & hardware',
@@ -71,9 +74,9 @@ export function HomePage() {
             },
           ].map((item, i) => (
             <FadeIn key={item.title} delay={i * 0.06}>
-              <p className="font-mono text-xs text-accent">0{i + 1}</p>
-              <h3 className="mt-2 text-xl font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-text-muted">{item.body}</p>
+              <p className="text-sm font-semibold text-accent">{String(i + 1).padStart(2, '0')}</p>
+              <h3 className="mt-3 text-xl font-semibold tracking-tight">{item.title}</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-text-muted">{item.body}</p>
             </FadeIn>
           ))}
         </div>

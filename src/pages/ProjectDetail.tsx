@@ -20,7 +20,7 @@ export function ProjectDetailPage() {
   if (!project) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6">
-        <p className="font-mono text-sm text-accent">404 · project</p>
+        <p className="text-sm text-accent">404 · project</p>
         <h1 className="mt-3 text-3xl font-semibold">Project not found</h1>
         <p className="mt-3 text-text-muted">
           This slug isn&apos;t in the portfolio data. It may have been renamed or removed.
@@ -95,7 +95,7 @@ export function ProjectDetailPage() {
                   className:
                     'flex aspect-[21/9] w-full flex-col items-center justify-center gap-2 text-text-muted',
                   innerHTML:
-                    '<span class="font-mono text-xs">Image unavailable</span>',
+                    '<span class="text-xs">Image unavailable</span>',
                 }),
               )
             }}
@@ -103,7 +103,7 @@ export function ProjectDetailPage() {
         ) : (
           <div className="flex aspect-[21/9] flex-col items-center justify-center gap-2 text-text-muted">
             <ImageOff size={32} />
-            <span className="font-mono text-xs">Screenshot placeholder — add from control room</span>
+            <span className="text-xs">Screenshot placeholder — add from control room</span>
           </div>
         )}
       </FadeIn>
@@ -157,12 +157,12 @@ export function ProjectDetailPage() {
         </div>
 
         <aside className="h-fit rounded-lg border border-border bg-surface p-5 lg:sticky lg:top-24">
-          <h2 className="font-mono text-xs uppercase tracking-widest text-accent">Technologies</h2>
+          <h2 className="text-sm font-semibold text-accent">Technologies</h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {project.technologies.map((t) => (
               <span
                 key={t}
-                className="rounded border border-border px-2 py-1 font-mono text-[11px] text-text-muted"
+                className="rounded border border-border px-2 py-1 text-[11px] text-text-muted"
               >
                 {t}
               </span>

@@ -1,6 +1,6 @@
 import type { MouseEvent } from 'react'
 import { Mail } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { siteConfig } from '@/config/site'
 import { GithubIcon, LinkedinIcon } from '@/components/ui/SocialIcons'
 
@@ -16,20 +16,20 @@ export function Footer() {
 
   return (
     <footer className="mt-auto border-t border-border bg-bg-elevated">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="font-mono text-sm text-accent">{siteConfig.name}</p>
-          <p className="mt-1 max-w-md text-sm text-text-muted">
-            I don&apos;t just learn technologies. I build systems with them.
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-start md:justify-between">
+        <div className="max-w-md">
+          <p className="text-base font-semibold text-text">{siteConfig.name}</p>
+          <p className="mt-2 text-sm leading-relaxed text-text-muted">
+            Building software, vision systems, and hardware projects that connect to the real world.
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <a
             href={siteConfig.github}
             target="_blank"
             rel="noreferrer"
-            className="rounded-md border border-border p-2 text-text-muted transition-colors hover:border-accent hover:text-accent"
+            className="rounded-full border border-border bg-surface p-2.5 text-text-muted transition-colors hover:border-border-strong hover:text-text"
             aria-label="GitHub"
           >
             <GithubIcon size={18} />
@@ -38,14 +38,14 @@ export function Footer() {
             href={siteConfig.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="rounded-md border border-border p-2 text-text-muted transition-colors hover:border-accent hover:text-accent"
+            className="rounded-full border border-border bg-surface p-2.5 text-text-muted transition-colors hover:border-border-strong hover:text-text"
             aria-label="LinkedIn"
           >
             <LinkedinIcon size={18} />
           </a>
           <a
             href={`mailto:${siteConfig.email}`}
-            className="rounded-md border border-border p-2 text-text-muted transition-colors hover:border-accent hover:text-accent"
+            className="rounded-full border border-border bg-surface p-2.5 text-text-muted transition-colors hover:border-border-strong hover:text-text"
             aria-label="Email"
           >
             <Mail size={18} />
@@ -54,21 +54,18 @@ export function Footer() {
       </div>
 
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-          <p className="font-mono text-xs text-text-muted">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
+          <p className="text-sm text-text-muted">
             © {new Date().getFullYear()} {siteConfig.name}
           </p>
           <button
             type="button"
             onClick={openControlRoom}
-            className="font-mono text-xs text-text-muted/60 transition-colors hover:text-text-muted"
+            className="text-sm text-text-muted/70 transition-colors hover:text-text-muted"
             title="Triple-click"
           >
-            built with intent
+            Portfolio
           </button>
-          <Link to="/" className="font-mono text-xs text-text-muted hover:text-accent">
-            {siteConfig.shortName}
-          </Link>
         </div>
       </div>
     </footer>

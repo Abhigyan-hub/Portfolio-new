@@ -73,8 +73,8 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
       </div>
 
       {filtered.length === 0 ? (
-        <div className="mt-12 rounded-lg border border-dashed border-border px-6 py-16 text-center">
-          <p className="font-mono text-sm text-accent">No matching projects</p>
+        <div className="mt-12 rounded-2xl border border-dashed border-border bg-surface px-6 py-16 text-center">
+          <p className="text-base font-semibold text-accent">No matching projects</p>
           <p className="mt-2 text-sm text-text-muted">
             Try another search term or clear the category filter.
           </p>
@@ -91,7 +91,7 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
           </Button>
         </div>
       ) : (
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

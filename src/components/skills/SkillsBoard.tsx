@@ -38,28 +38,16 @@ export function SkillsBoard({ skills }: { skills: Skill[] }) {
   return (
     <div>
       <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={() => setActive('All')}
-          className={cn(
-            'rounded-md border px-3 py-1.5 text-sm transition-colors',
-            active === 'All'
-              ? 'border-accent bg-accent-dim text-accent'
-              : 'border-border text-text-muted hover:border-accent hover:text-accent',
-          )}
-        >
-          All
-        </button>
-        {ORDER.map((cat) => (
+        {(['All', ...ORDER] as const).map((cat) => (
           <button
             key={cat}
             type="button"
             onClick={() => setActive(cat)}
             className={cn(
-              'rounded-md border px-3 py-1.5 text-sm transition-colors',
+              'rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
               active === cat
-                ? 'border-accent bg-accent-dim text-accent'
-                : 'border-border text-text-muted hover:border-accent hover:text-accent',
+                ? 'bg-accent text-accent-fg'
+                : 'bg-bg-elevated text-text-muted hover:text-text',
             )}
           >
             {cat}
@@ -67,29 +55,24 @@ export function SkillsBoard({ skills }: { skills: Skill[] }) {
         ))}
       </div>
 
-      <div className="mt-8 space-y-10">
+      <div className="mt-10 space-y-12">
         {categories.map((cat) => {
           const list = grouped.get(cat) ?? []
           if (list.length === 0) return null
           return (
             <section key={cat}>
               <div className="mb-4 flex items-center gap-3">
-                <h2 className="text-xl font-semibold">{cat}</h2>
+                <h2 className="text-xl font-semibold tracking-tight">{cat}</h2>
                 <Badge>{list.length}</Badge>
               </div>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {list.map((skill) => (
-                  <div
-                    key={skill.id}
-                    className="rounded-lg border border-border bg-surface p-4 transition-colors hover:border-accent/50"
-                  >
+                  <div key={skill.id} className="soft-panel rounded-2xl p-4">
                     <div className="flex items-center justify-between gap-3">
                       <p className="font-medium text-text">{skill.name}</p>
-                      <span className="font-mono text-xs text-text-muted">
-                        {skill.proficiency}%
-                      </span>
+                      <span className="text-sm text-text-muted">{skill.proficiency}%</span>
                     </div>
-                    <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-bg">
+                    <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-bg-elevated">
                       <div
                         className="h-full rounded-full bg-accent transition-all duration-500"
                         style={{ width: `${Math.min(100, Math.max(0, skill.proficiency))}%` }}

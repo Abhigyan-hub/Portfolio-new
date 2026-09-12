@@ -16,74 +16,70 @@ export function ContactPage() {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
     const subject = encodeURIComponent(`Portfolio contact from ${name || 'visitor'}`)
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    )
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)
     window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`
   }
 
   return (
-    <div className="relative">
-      <div className="absolute inset-x-0 top-0 h-56 grid-bg glow-spot opacity-50" aria-hidden />
-      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+    <div className="page-wash">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <FadeIn>
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">Contact</p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-            Let&apos;s talk systems
+          <p className="text-sm font-semibold text-accent">Contact</p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+            Let&apos;s talk
           </h1>
-          <p className="mt-4 max-w-2xl text-text-muted">
-            No fake backend inbox — the form opens your email client. Prefer a direct channel?
-            Use the links below.
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-text-muted">
+            Prefer email, GitHub, or LinkedIn? Use the links. The form opens your email client —
+            nothing is stored on a server.
           </p>
         </FadeIn>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
+        <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <FadeIn>
-            <div className="space-y-4">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-4 rounded-lg border border-border bg-surface p-4 transition-colors hover:border-accent"
-              >
-                <Mail className="text-accent" size={20} />
-                <div>
-                  <p className="text-sm font-medium">Email</p>
-                  <p className="font-mono text-sm text-text-muted">{siteConfig.email}</p>
-                </div>
-              </a>
-              <a
-                href={siteConfig.github}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-4 rounded-lg border border-border bg-surface p-4 transition-colors hover:border-accent"
-              >
-                <GithubIcon className="text-accent" size={20} />
-                <div>
-                  <p className="text-sm font-medium">GitHub</p>
-                  <p className="font-mono text-sm text-text-muted">{siteConfig.github}</p>
-                </div>
-              </a>
-              <a
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-4 rounded-lg border border-border bg-surface p-4 transition-colors hover:border-accent"
-              >
-                <LinkedinIcon className="text-accent" size={20} />
-                <div>
-                  <p className="text-sm font-medium">LinkedIn</p>
-                  <p className="font-mono text-sm text-text-muted">{siteConfig.linkedin}</p>
-                </div>
-              </a>
+            <div className="space-y-3">
+              {[
+                {
+                  href: `mailto:${siteConfig.email}`,
+                  icon: <Mail className="text-accent" size={20} />,
+                  label: 'Email',
+                  value: siteConfig.email,
+                },
+                {
+                  href: siteConfig.github,
+                  icon: <GithubIcon className="text-accent" size={20} />,
+                  label: 'GitHub',
+                  value: siteConfig.github.replace('https://', ''),
+                  external: true,
+                },
+                {
+                  href: siteConfig.linkedin,
+                  icon: <LinkedinIcon className="text-accent" size={20} />,
+                  label: 'LinkedIn',
+                  value: 'linkedin.com/in/abhigyan-varma',
+                  external: true,
+                },
+              ].map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noreferrer' : undefined}
+                  className="soft-panel flex items-center gap-4 rounded-2xl p-4 transition-colors hover:border-border-strong"
+                >
+                  {item.icon}
+                  <div>
+                    <p className="text-sm font-semibold text-text">{item.label}</p>
+                    <p className="text-sm text-text-muted">{item.value}</p>
+                  </div>
+                </a>
+              ))}
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.08}>
-            <form
-              onSubmit={onSubmit}
-              className="rounded-lg border border-border bg-surface p-6 sm:p-8"
-            >
-              <p className="font-mono text-xs text-text-muted">
-                Submits via mailto — opens your email client. Nothing is stored on a server.
+          <FadeIn delay={0.06}>
+            <form onSubmit={onSubmit} className="soft-panel rounded-2xl p-6 sm:p-8">
+              <p className="text-sm text-text-muted">
+                Submits with mailto — your email app will open with this message filled in.
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div>

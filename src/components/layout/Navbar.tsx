@@ -30,31 +30,31 @@ export function Navbar() {
       className={cn(
         'sticky top-0 z-50 border-b transition-colors',
         scrolled
-          ? 'border-border bg-bg/85 backdrop-blur-md'
-          : 'border-transparent bg-transparent',
+          ? 'border-border bg-bg/90 backdrop-blur-md'
+          : 'border-transparent bg-bg/70 backdrop-blur-sm',
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="group flex items-center gap-2 font-mono text-sm tracking-tight">
-          <span className="flex h-8 w-8 items-center justify-center rounded border border-border bg-surface text-accent transition-colors group-hover:border-accent">
+        <Link to="/" className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-text">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-fg">
             {siteConfig.shortName}
           </span>
-          <span className="hidden text-text sm:inline">{siteConfig.name}</span>
+          <span className="hidden sm:inline">{siteConfig.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-0.5 md:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className="rounded-md px-3 py-2 text-sm text-text-muted transition-colors hover:bg-surface hover:text-text"
+              className="rounded-full px-3.5 py-2 text-sm font-medium text-text-muted transition-colors hover:bg-bg-elevated hover:text-text"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <Button
             variant="ghost"
             size="sm"
@@ -78,17 +78,14 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div
-          id="mobile-nav"
-          className="border-t border-border bg-bg md:hidden"
-        >
+        <div id="mobile-nav" className="border-t border-border bg-bg md:hidden">
           <nav className="flex flex-col gap-1 px-4 py-4" aria-label="Mobile">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-base text-text hover:bg-surface"
+                className="rounded-lg px-3 py-3 text-base font-medium text-text hover:bg-bg-elevated"
               >
                 {link.label}
               </Link>

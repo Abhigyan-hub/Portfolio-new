@@ -9,17 +9,17 @@ export function ProjectCard({ project, className }: { project: Project; classNam
     <Link
       to={`/projects/${project.slug}`}
       className={cn(
-        'group flex flex-col overflow-hidden rounded-lg border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_0_0_1px_var(--accent)]',
+        'group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_1px_2px_rgba(10,37,64,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[0_12px_32px_rgba(10,37,64,0.08)]',
         className,
       )}
     >
-      <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-bg-elevated">
+      <div className="relative aspect-[16/10] overflow-hidden bg-bg-elevated">
         {project.image ? (
           <img
             src={project.image}
             alt=""
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             onError={(e) => {
               e.currentTarget.style.display = 'none'
               const fallback = e.currentTarget.nextElementSibling
@@ -29,28 +29,26 @@ export function ProjectCard({ project, className }: { project: Project; classNam
         ) : null}
         <div
           className={cn(
-            'absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[linear-gradient(135deg,var(--bg-elevated),var(--surface))]',
+            'absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-bg-elevated to-surface',
             project.image ? 'hidden' : '',
           )}
         >
           <ImageOff className="text-text-muted" size={28} />
-          <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted">
-            {project.category}
-          </span>
+          <span className="text-xs font-medium text-text-muted">{project.category}</span>
         </div>
         <div className="absolute left-3 top-3 flex gap-2">
           {project.featured && <Badge>Featured</Badge>}
-          <Badge className="bg-bg/80">{project.status}</Badge>
+          <Badge className="bg-surface/90 text-text-muted">{project.status}</Badge>
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-6">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="font-mono text-[11px] text-text-muted">
+            <p className="text-sm text-text-muted">
               {project.year} · {project.category}
             </p>
-            <h3 className="mt-1 text-lg font-semibold text-text group-hover:text-accent">
+            <h3 className="mt-1 text-xl font-semibold tracking-tight text-text">
               {project.title}
             </h3>
           </div>
@@ -59,20 +57,20 @@ export function ProjectCard({ project, className }: { project: Project; classNam
             className="mt-1 shrink-0 text-text-muted transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
           />
         </div>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-text-muted">
+        <p className="mt-3 flex-1 text-[15px] leading-relaxed text-text-muted">
           {project.shortDescription}
         </p>
-        <div className="mt-4 flex flex-wrap gap-1.5">
+        <div className="mt-5 flex flex-wrap gap-2">
           {project.technologies.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="rounded border border-border px-2 py-0.5 font-mono text-[10px] text-text-muted"
+              className="rounded-full bg-bg-elevated px-2.5 py-1 text-xs font-medium text-text-muted"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 4 && (
-            <span className="rounded border border-border px-2 py-0.5 font-mono text-[10px] text-text-muted">
+            <span className="rounded-full bg-bg-elevated px-2.5 py-1 text-xs font-medium text-text-muted">
               +{project.technologies.length - 4}
             </span>
           )}
