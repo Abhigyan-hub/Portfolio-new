@@ -8,7 +8,10 @@ import { usePortfolio } from '@/hooks/usePortfolio'
 import { usePageMeta } from '@/hooks/usePageMeta'
 
 export function HomePage() {
-  usePageMeta('Home', 'Systems builder spanning software, computer vision, robotics, and research.')
+  usePageMeta(
+    'Abhigyan Varma — Full-Stack, Vision & Robotics Portfolio',
+    'Computer Science engineer building full-stack products, computer vision, robotics, and research. Explore selected projects and systems work.',
+  )
   const { data } = usePortfolio()
   const featured = [...data.projects]
     .filter((p) => p.featured)

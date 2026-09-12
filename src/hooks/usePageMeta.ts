@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { siteConfig } from '@/config/site'
 
 const SITE_URL = 'https://www.mozartdev.in'
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`
+const DEFAULT_IMAGE = `${SITE_URL}/og-image.png?v=3`
 
 function upsertMeta(
   attr: 'name' | 'property',

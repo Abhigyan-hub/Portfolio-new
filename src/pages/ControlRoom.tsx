@@ -565,7 +565,7 @@ export function ControlRoomPage() {
                     </Select>
                   </div>
                   <div>
-                    <Label>Proficiency</Label>
+                    <Label>Proficiency (0–100 → level)</Label>
                     <Input
                       type="number"
                       min={0}
@@ -581,6 +581,16 @@ export function ControlRoomPage() {
                         )
                       }
                     />
+                    <p className="mt-1.5 text-xs text-text-muted">
+                      Displayed as:{' '}
+                      {selectedSkill.proficiency >= 85
+                        ? 'Strong'
+                        : selectedSkill.proficiency >= 75
+                          ? 'Familiar'
+                          : selectedSkill.proficiency >= 65
+                            ? 'Developing'
+                            : 'Beginner'}
+                    </p>
                   </div>
                   <div>
                     <Label>Priority</Label>
