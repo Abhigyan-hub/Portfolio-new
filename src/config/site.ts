@@ -14,6 +14,7 @@ export const siteConfig: SiteConfig = {
   currentFocus: 'Full-stack platforms, CV pipelines, and robotics',
   vercelAnalyticsUrl: 'https://vercel.com/dashboard',
   portfolioVersion: '1.0.0',
+  siteUrl: 'https://www.mozartdev.in',
 }
 
 export const navLinks = [

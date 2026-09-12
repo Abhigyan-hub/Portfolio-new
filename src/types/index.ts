@@ -106,4 +106,5 @@ export interface SiteConfig {
   currentFocus: string
   vercelAnalyticsUrl: string
   portfolioVersion: string
+  siteUrl: string
 }
