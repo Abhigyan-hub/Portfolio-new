@@ -1,7 +1,7 @@
 import type { MouseEvent } from 'react'
 import { Mail } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { siteConfig } from '@/config/site'
+import { brandName, siteConfig } from '@/config/site'
 import { GithubIcon, LinkedinIcon } from '@/components/ui/SocialIcons'
 
 export function Footer() {
@@ -18,9 +18,11 @@ export function Footer() {
     <footer className="mt-auto border-t border-border bg-bg-elevated">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-start md:justify-between">
         <div className="max-w-md">
-          <p className="text-base font-semibold text-text">{siteConfig.name}</p>
+          <p className="text-base font-semibold text-text">{brandName}</p>
+          <p className="mt-1 text-sm font-medium text-text-muted">{siteConfig.name}</p>
           <p className="mt-2 text-sm leading-relaxed text-text-muted">
-            Building software, vision systems, and hardware projects that connect to the real world.
+            Software development portfolio of Abhigyan Varma — backend engineering, full-stack
+            products, and systems that connect to the real world.
           </p>
         </div>
 
@@ -30,7 +32,7 @@ export function Footer() {
             target="_blank"
             rel="noreferrer"
             className="rounded-full border border-border bg-surface p-2.5 text-text-muted transition-colors hover:border-border-strong hover:text-text"
-            aria-label="GitHub"
+            aria-label="GitHub profile of Abhigyan Varma"
           >
             <GithubIcon size={18} />
           </a>
@@ -39,14 +41,14 @@ export function Footer() {
             target="_blank"
             rel="noreferrer"
             className="rounded-full border border-border bg-surface p-2.5 text-text-muted transition-colors hover:border-border-strong hover:text-text"
-            aria-label="LinkedIn"
+            aria-label="LinkedIn profile of Abhigyan Varma"
           >
             <LinkedinIcon size={18} />
           </a>
           <a
             href={`mailto:${siteConfig.email}`}
             className="rounded-full border border-border bg-surface p-2.5 text-text-muted transition-colors hover:border-border-strong hover:text-text"
-            aria-label="Email"
+            aria-label={`Email ${siteConfig.name}`}
           >
             <Mail size={18} />
           </a>
@@ -56,7 +58,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
           <p className="text-sm text-text-muted">
-            © {new Date().getFullYear()} {siteConfig.name}
+            © {new Date().getFullYear()} {siteConfig.name} · {brandName}
           </p>
           <button
             type="button"

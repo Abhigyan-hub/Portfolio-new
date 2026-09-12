@@ -14,7 +14,14 @@ export function ProjectDetailPage() {
 
   usePageMeta(
     project ? project.title : 'Project not found',
-    project?.shortDescription,
+    project
+      ? `Explore ${project.title}, a ${project.category.toLowerCase()} project by Abhigyan Varma. ${project.shortDescription}`
+      : 'This project page could not be found on Mozart Dev.',
+    {
+      path: project ? `/projects/${project.slug}` : undefined,
+      noIndex: !project,
+      type: project ? 'article' : 'website',
+    },
   )
 
   if (!project) {
@@ -67,11 +74,7 @@ export function ProjectDetailPage() {
                 <GithubIcon size={16} /> GitHub
               </Button>
             </a>
-          ) : (
-            <Button variant="secondary" disabled title="Add in control room">
-              <GithubIcon size={16} /> GitHub (add later)
-            </Button>
-          )}
+          ) : null}
           {project.demoUrl ? (
             <a href={project.demoUrl} target="_blank" rel="noreferrer">
               <Button>
@@ -103,7 +106,7 @@ export function ProjectDetailPage() {
         ) : (
           <div className="flex aspect-[21/9] flex-col items-center justify-center gap-2 text-text-muted">
             <ImageOff size={32} />
-            <span className="text-xs">Screenshot placeholder — add from control room</span>
+            <span className="text-xs">Preview coming soon</span>
           </div>
         )}
       </FadeIn>

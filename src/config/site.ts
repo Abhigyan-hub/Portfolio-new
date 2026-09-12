@@ -1,21 +1,24 @@
 import type { SiteConfig } from '@/types'
+import { SITE_ORIGIN } from '@/config/seo'
 
 export const siteConfig: SiteConfig = {
   name: 'Abhigyan Varma',
   shortName: 'AV',
   tagline: 'Building software that crosses the boundary between code and the real world.',
-  role: 'Computer Science Engineer · Systems Builder',
+  role: 'Software Developer · Backend & Full-Stack Engineer',
   email: 'mozart.developerr@gmail.com',
   github: 'https://github.com/Abhigyan-hub/',
   linkedin: 'https://www.linkedin.com/in/abhigyan-varma-42686b32a/',
   resumeUrl: '',
-  currentlyBuilding: 'Systems that connect software, vision, and hardware',
+  currentlyBuilding: 'Backend systems, full-stack products, and scalable applications',
   currentlyLearning: 'Distributed systems & research methodology',
-  currentFocus: 'Full-stack platforms, CV pipelines, and robotics',
+  currentFocus: 'Backend engineering, full-stack development, and systems design',
   vercelAnalyticsUrl: 'https://vercel.com/dashboard',
   portfolioVersion: '1.0.0',
-  siteUrl: 'https://www.mozartdev.in',
+  siteUrl: SITE_ORIGIN,
 }
+
+export const brandName = 'Mozart Dev'
 
 export const navLinks = [
   { to: '/', label: 'Home' },
@@ -27,5 +30,5 @@ export const navLinks = [
   { to: '/contact', label: 'Contact' },
 ] as const
 
-export const STORAGE_KEY = 'portfolio-content-v1'
+export const STORAGE_KEY = 'portfolio-content-v2'
 export const THEME_KEY = 'portfolio-theme'

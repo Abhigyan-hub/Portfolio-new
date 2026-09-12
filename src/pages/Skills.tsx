@@ -5,7 +5,10 @@ import { usePortfolio } from '@/hooks/usePortfolio'
 import { usePageMeta } from '@/hooks/usePageMeta'
 
 export function SkillsPage() {
-  usePageMeta('Skills', 'Languages, frontend, backend, databases, cloud, computer vision, and hardware.')
+  usePageMeta(
+    'Skills',
+    'Technical skills of Abhigyan Varma — languages, frontend, backend, databases, cloud, computer vision, and hardware.',
+  )
   const { data } = usePortfolio()
 
   return (

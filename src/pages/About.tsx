@@ -1,6 +1,7 @@
 import { FadeIn } from '@/components/ui/Motion'
 import { usePageMeta } from '@/hooks/usePageMeta'
-import { siteConfig } from '@/config/site'
+import { brandName, siteConfig } from '@/config/site'
+import { GithubIcon, LinkedinIcon } from '@/components/ui/SocialIcons'
 
 const domains = [
   {
@@ -26,7 +27,10 @@ const domains = [
 ]
 
 export function AboutPage() {
-  usePageMeta('About', `About ${siteConfig.name} — software, systems, vision, hardware, and research.`)
+  usePageMeta(
+    'About',
+    `Abhigyan Varma is a Computer Science engineering student and software developer focused on backend engineering, full-stack development and scalable applications. Mozart Dev is his software development portfolio.`,
+  )
 
   return (
     <div className="page-wash">
@@ -34,13 +38,37 @@ export function AboutPage() {
         <FadeIn>
           <p className="text-sm font-semibold text-accent">About</p>
           <h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
-            Building across software, systems, and the physical world.
+            Abhigyan Varma — Software Developer
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-muted">
-            I&apos;m a Computer Science engineering student working across full-stack web, mobile,
-            computer vision, cloud infrastructure, robotics, IoT, and research. The through-line is
-            the same: design and ship systems that hold up under real constraints.
+            Abhigyan Varma is a Computer Science engineering student and software developer focused
+            on backend engineering, full-stack development and scalable applications.{' '}
+            {brandName} is his software development brand and portfolio — a place to explore
+            projects spanning React, FastAPI, Python, cloud systems, computer vision, and hardware.
           </p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-text-muted">
+            He works across full-stack web, mobile, computer vision, cloud infrastructure, robotics,
+            IoT, and research. The through-line is the same: design and ship systems that hold up
+            under real constraints.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              href={siteConfig.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted transition-colors hover:border-border-strong hover:text-text"
+            >
+              <GithubIcon size={16} /> GitHub
+            </a>
+            <a
+              href={siteConfig.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text-muted transition-colors hover:border-border-strong hover:text-text"
+            >
+              <LinkedinIcon size={16} /> LinkedIn
+            </a>
+          </div>
         </FadeIn>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">

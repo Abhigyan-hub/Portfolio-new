@@ -70,7 +70,7 @@ function emptyProject(order: number): Project {
 }
 
 export function ControlRoomPage() {
-  usePageMeta('Control Room', 'Local portfolio content editor.')
+  usePageMeta('Control Room', 'Local portfolio content editor.', { noIndex: true })
   const {
     data,
     hasLocalChanges,

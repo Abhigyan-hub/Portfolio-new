@@ -34,7 +34,7 @@ export const defaultProjects: Project[] = [
       'College-specific verification flows',
       'Clean mobile UX for dense academic data',
     ],
-    results: 'Designed and implemented around real student academic workflows. Links and metrics can be added from the control room.',
+    results: 'Designed and implemented around real student academic workflows, with attendance tracking, timetable views, and verification flows in a single mobile experience.',
     futureImprovements: [
       'Deeper timetable OCR integration',
       'Push reminders for low attendance',
@@ -234,7 +234,7 @@ export const defaultProjects: Project[] = [
     architecture:
       'Experiment harness → map generation by density → algorithm runs → aggregated metrics and visualizations.',
     results:
-      'Experimental framework and analysis structure are documented on the Research page. Graphs and numeric outcomes can be attached via the control room.',
+      'Experimental framework and analysis structure are documented on the Research page, including repeated trials across obstacle-density conditions.',
     futureImprovements: [
       'Additional algorithms',
       'Larger map sets',

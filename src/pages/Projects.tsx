@@ -4,7 +4,10 @@ import { usePortfolio } from '@/hooks/usePortfolio'
 import { usePageMeta } from '@/hooks/usePageMeta'
 
 export function ProjectsPage() {
-  usePageMeta('Projects', 'Searchable project showcase across full-stack, vision, robotics, and research.')
+  usePageMeta(
+    'Projects',
+    'Browse software projects by Abhigyan Varma at Mozart Dev — full-stack apps, backend systems, computer vision, robotics, and research.',
+  )
   const { data } = usePortfolio()
 
   return (

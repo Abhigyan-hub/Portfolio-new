@@ -19,16 +19,16 @@ export function Hero() {
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl"
         >
-          <p className="text-base font-semibold text-accent">{siteConfig.name}</p>
+          <p className="text-base font-semibold text-accent">Mozart Dev</p>
           <p className="mt-2 text-base text-text-muted">{siteConfig.role}</p>
 
           <h1 className="mt-6 text-balance text-4xl font-bold tracking-tight text-text sm:text-5xl lg:text-[3.5rem] lg:leading-[1.1]">
-            {siteConfig.tagline}
+            Abhigyan Varma — Software Developer
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-muted sm:text-xl">
-            I build across full-stack products, computer vision, cloud, robotics, and research —
-            with a focus on systems that work in the real world.
+            {siteConfig.tagline} I build across full-stack products, computer vision, cloud,
+            robotics, and research — with a focus on systems that work in the real world.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">

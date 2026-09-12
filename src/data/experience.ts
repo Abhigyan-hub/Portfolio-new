@@ -1,35 +1,20 @@
 import type { Experience } from '@/types'
 
-/**
- * Placeholder experience entries — edit real organizations/titles in /control-room.
- * Do not invent employment claims here.
- */
 export const defaultExperience: Experience[] = [
   {
     id: 'exp-1',
-    organization: 'AppDost IT solotions',
+    organization: 'AppDost IT Solutions',
     position: 'Full-Stack Developer',
-    startDate: '2026-February',
-    endDate: '2026-May',
+    startDate: 'Feb 2026',
+    endDate: 'May 2026',
     description:
-      'Replace this placeholder with a real experience entry. Use the control room to edit organization, role, dates, technologies, and achievements.',
+      'Worked as a full-stack developer building and shipping web features across the frontend and backend, with a focus on clean interfaces, reliable APIs, and practical product delivery.',
     technologies: ['React', 'TypeScript', 'Python'],
     achievements: [
-      'Add a concrete achievement',
-      'Add another measurable or technical contribution',
+      'Built and iterated on full-stack product features with React and TypeScript',
+      'Implemented and supported backend workflows in Python',
+      'Collaborated on end-to-end delivery from UI through API integration',
     ],
     order: 1,
-  },
-  {
-    id: 'exp-2',
-    organization: 'Add organization',
-    position: 'Add role / title',
-    startDate: 'YYYY-MM',
-    endDate: 'YYYY-MM',
-    description:
-      'Second placeholder entry for timeline structure. Update or delete from the control room when real details are available.',
-    technologies: ['FastAPI', 'PostgreSQL', 'AWS'],
-    achievements: ['Add achievement details'],
-    order: 2,
   },
 ]

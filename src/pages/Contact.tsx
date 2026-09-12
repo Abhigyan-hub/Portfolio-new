@@ -8,7 +8,10 @@ import { siteConfig } from '@/config/site'
 import { usePageMeta } from '@/hooks/usePageMeta'
 
 export function ContactPage() {
-  usePageMeta('Contact', `Contact ${siteConfig.name} via email, GitHub, or LinkedIn.`)
+  usePageMeta(
+    'Contact',
+    `Contact Abhigyan Varma (Mozart Dev) via email, GitHub, or LinkedIn for software development opportunities.`,
+  )
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')

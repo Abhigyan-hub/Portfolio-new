@@ -6,7 +6,10 @@ import { usePortfolio } from '@/hooks/usePortfolio'
 import { usePageMeta } from '@/hooks/usePageMeta'
 
 export function ResearchPage() {
-  usePageMeta('Research', 'Research portfolio featuring A* vs GCCP pathfinding experiments.')
+  usePageMeta(
+    'Research',
+    'Research by Abhigyan Varma at Mozart Dev, including A* vs GCCP pathfinding experiments and algorithmic analysis.',
+  )
   const { data } = usePortfolio()
   const entries = [...data.research].sort((a, b) => b.year - a.year)
 
@@ -25,8 +28,7 @@ export function ResearchPage() {
 
       {entries.length === 0 ? (
         <div className="mt-12 rounded-2xl border border-dashed border-border px-6 py-16 text-center">
-          <p className="text-sm text-accent">No research entries yet</p>
-          <p className="mt-2 text-sm text-text-muted">Add entries from the control room.</p>
+          <p className="text-sm text-text-muted">Research write-ups will appear here soon.</p>
         </div>
       ) : (
         <div className="mt-12 space-y-12">
@@ -116,11 +118,6 @@ export function ResearchPage() {
                     <p className="mt-3 text-sm leading-relaxed text-text-muted">
                       {entry.conclusions}
                     </p>
-                    <div className="mt-6 rounded-md border border-dashed border-border bg-bg p-6 text-center">
-                      <p className="text-xs text-text-muted">
-                        Graphs / numeric result figures — attach via control room when ready
-                      </p>
-                    </div>
                   </section>
                 </div>
               </article>

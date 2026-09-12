@@ -1,14 +1,28 @@
 import { useEffect } from 'react'
-import { siteConfig } from '@/config/site'
+import { useLocation } from 'react-router-dom'
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  OG_DESCRIPTION,
+  OG_TITLE,
+  absoluteUrl,
+  ogImageUrl,
+  pageTitle,
+  SITE_NAME,
+} from '@/config/seo'
 
-const SITE_URL = 'https://www.mozartdev.in'
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.png?v=3`
+type MetaOptions = {
+  /** Override path for canonical (defaults to current location). */
+  path?: string
+  /** Prevent indexing (404, control room). */
+  noIndex?: boolean
+  /** Use title as-is without brand suffix. */
+  absoluteTitle?: boolean
+  /** Open Graph type */
+  type?: 'website' | 'article'
+}
 
-function upsertMeta(
-  attr: 'name' | 'property',
-  key: string,
-  content: string,
-) {
+function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
   let el = document.querySelector(`meta[${attr}="${key}"]`)
   if (!el) {
     el = document.createElement('meta')
@@ -28,33 +42,58 @@ function upsertLink(rel: string, href: string) {
   el.href = href
 }
 
-export function usePageMeta(title: string, description?: string) {
+/**
+ * Client-side meta updates for the Vite SPA.
+ * Canonical URLs always use https://www.mozartdev.in (never bare domain / current origin).
+ */
+export function usePageMeta(
+  title: string,
+  description?: string,
+  options: MetaOptions = {},
+) {
+  const location = useLocation()
+
   useEffect(() => {
-    const fullTitle = title.includes(siteConfig.name)
+    const path = options.path ?? location.pathname
+    const canonical = absoluteUrl(path)
+    const isHome = path === '/' || path === ''
+
+    const fullTitle = options.absoluteTitle
       ? title
-      : `${title} · ${siteConfig.name}`
+      : isHome
+        ? DEFAULT_TITLE
+        : pageTitle(title)
 
-    const desc =
-      description ??
-      'Computer Science engineer building full-stack products, computer vision, robotics, and research.'
-
-    const path = `${window.location.origin}${window.location.pathname}`
-    const canonical = path.startsWith('http') ? path : `${SITE_URL}${window.location.pathname}`
+    const desc = description ?? DEFAULT_DESCRIPTION
+    const image = ogImageUrl()
+    const ogTitle = isHome ? OG_TITLE : fullTitle
+    const ogDesc = isHome ? OG_DESCRIPTION : desc
 
     document.title = fullTitle
 
     upsertMeta('name', 'description', desc)
-    upsertMeta('property', 'og:title', fullTitle)
-    upsertMeta('property', 'og:description', desc)
+    upsertMeta(
+      'name',
+      'robots',
+      options.noIndex
+        ? 'noindex, nofollow'
+        : 'index, follow, max-image-preview:large',
+    )
+
+    upsertMeta('property', 'og:title', ogTitle)
+    upsertMeta('property', 'og:description', ogDesc)
     upsertMeta('property', 'og:url', canonical)
-    upsertMeta('property', 'og:image', DEFAULT_IMAGE)
-    upsertMeta('property', 'og:image:secure_url', DEFAULT_IMAGE)
-    upsertMeta('property', 'og:site_name', 'Mozart Dev')
-    upsertMeta('property', 'og:type', 'website')
+    upsertMeta('property', 'og:image', image)
+    upsertMeta('property', 'og:image:secure_url', image)
+    upsertMeta('property', 'og:site_name', SITE_NAME)
+    upsertMeta('property', 'og:type', options.type ?? 'website')
+    upsertMeta('property', 'og:locale', 'en_US')
+
     upsertMeta('name', 'twitter:card', 'summary_large_image')
-    upsertMeta('name', 'twitter:title', fullTitle)
-    upsertMeta('name', 'twitter:description', desc)
-    upsertMeta('name', 'twitter:image', DEFAULT_IMAGE)
+    upsertMeta('name', 'twitter:title', ogTitle)
+    upsertMeta('name', 'twitter:description', ogDesc)
+    upsertMeta('name', 'twitter:image', image)
+
     upsertLink('canonical', canonical)
-  }, [title, description])
+  }, [title, description, options.path, options.noIndex, options.absoluteTitle, options.type, location.pathname])
 }

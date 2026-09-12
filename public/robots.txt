@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Private editor — not for search indexing
+Disallow: /control-room
+Disallow: /404
+
 Sitemap: https://www.mozartdev.in/sitemap.xml

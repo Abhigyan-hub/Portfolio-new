@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Footer } from './Footer'
 import { Navbar } from './Navbar'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { PageTransition } from '@/components/ui/Motion'
 
 export function RootLayout() {
@@ -34,6 +35,7 @@ export function RootLayout() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <JsonLd />
       <Navbar />
       <main className="flex-1">
         <AnimatePresence mode="wait">

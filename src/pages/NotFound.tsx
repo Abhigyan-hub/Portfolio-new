@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/Button'
 import { usePageMeta } from '@/hooks/usePageMeta'
 
 export function NotFoundPage() {
-  usePageMeta('404', 'Page not found.')
+  usePageMeta('404', 'Page not found on Mozart Dev.', { noIndex: true })
 
   return (
     <div className="page-wash flex min-h-[70vh] items-center justify-center px-4 py-20">

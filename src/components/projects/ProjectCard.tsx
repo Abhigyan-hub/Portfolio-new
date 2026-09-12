@@ -17,7 +17,7 @@ export function ProjectCard({ project, className }: { project: Project; classNam
         {project.image ? (
           <img
             src={project.image}
-            alt=""
+            alt={`${project.title} — project preview`}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             onError={(e) => {

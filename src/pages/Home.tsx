@@ -6,12 +6,10 @@ import { FadeIn } from '@/components/ui/Motion'
 import { Button } from '@/components/ui/Button'
 import { usePortfolio } from '@/hooks/usePortfolio'
 import { usePageMeta } from '@/hooks/usePageMeta'
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from '@/config/seo'
 
 export function HomePage() {
-  usePageMeta(
-    'Abhigyan Varma — Full-Stack, Vision & Robotics Portfolio',
-    'Computer Science engineer building full-stack products, computer vision, robotics, and research. Explore selected projects and systems work.',
-  )
+  usePageMeta(DEFAULT_TITLE, DEFAULT_DESCRIPTION, { absoluteTitle: true })
   const { data } = usePortfolio()
   const featured = [...data.projects]
     .filter((p) => p.featured)
@@ -22,12 +20,18 @@ export function HomePage() {
     <>
       <Hero />
 
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+      <section
+        className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24"
+        aria-labelledby="featured-heading"
+      >
         <FadeIn>
           <div className="flex items-end justify-between gap-4">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold text-accent">Selected work</p>
-              <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+              <h2
+                id="featured-heading"
+                className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
+              >
                 Projects worth opening
               </h2>
               <p className="mt-3 text-lg leading-relaxed text-text-muted">
@@ -60,7 +64,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-bg-elevated">
+      <section className="border-y border-border bg-bg-elevated" aria-label="Focus areas">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3 md:py-20">
           {[
             {
@@ -78,7 +82,7 @@ export function HomePage() {
           ].map((item, i) => (
             <FadeIn key={item.title} delay={i * 0.06}>
               <p className="text-sm font-semibold text-accent">{String(i + 1).padStart(2, '0')}</p>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight">{item.title}</h3>
+              <h2 className="mt-3 text-xl font-semibold tracking-tight">{item.title}</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-text-muted">{item.body}</p>
             </FadeIn>
           ))}
